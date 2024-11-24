@@ -71,6 +71,7 @@ add_library(topics_library SHARED
   src/topics/content_filtering_publisher.cpp
   src/topics/content_filtering_subscriber.cpp
   src/topics/talker.cpp
+  src/topics/dshello.cpp
   src/topics/talker_loaned_message.cpp
   src/topics/talker_serialized_message.cpp
   src/topics/listener.cpp

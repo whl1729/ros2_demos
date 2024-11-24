@@ -15,6 +15,7 @@
 #include <chrono>
 #include <cstdio>
 #include <memory>
+#include <string>
 #include <utility>
 
 #include "rclcpp/rclcpp.hpp"
@@ -23,8 +24,10 @@
 #include "std_msgs/msg/string.hpp"
 
 #include "demo_nodes_cpp/visibility_control.h"
+#include "libdepthsense/dshello.h"
 
 using namespace std::chrono_literals;
+using std::string;
 
 namespace demo_nodes_cpp
 {
@@ -43,7 +46,8 @@ public:
       [this]() -> void
       {
         msg_ = std::make_unique<std_msgs::msg::String>();
-        msg_->data = "Hello World: " + std::to_string(count_++);
+        std::string camera_data = hello_depthsense();
+        msg_->data = camera_data.c_str();
         RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", msg_->data.c_str());
         // Put the message into a queue to be processed by the middleware.
         // This call is non-blocking.

@@ -1,2 +1,4 @@
 # Byte compiled Python
 __pycache__/
+.vscode/
+*.tar.gz
